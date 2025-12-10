@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Проекты — Портфолио</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+  <!-- Header -->
+  <header class="bg-primary text-white py-3">
+    <div class="container">
+      <h1 class="h3 mb-0">[ЛОГОТИП]</h1>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Переключить навигацию">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+          <li class="nav-item"><a class="nav-link active" href="projects.html">Проекты</a></li>
+          <li class="nav-item"><a class="nav-link" href="diary.html">Дневник</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container my-4 flex-grow-1">
+    <h1 class="mb-4">Мои проекты</h1>
+
+    <!-- Фильтры -->
+    <div class="btn-group mb-4" role="group">
+      <button type="button" class="btn btn-outline-primary">Все</button>
+      <button type="button" class="btn btn-outline-secondary">HTML</button>
+      <button type="button" class="btn btn-outline-info">JS</button>
+      <button type="button" class="btn btn-outline-danger">React</button>
+    </div>
+
+    <!-- Сетка проектов -->
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="https://via.placeholder.com/300x200?text=HTML+Project" class="card-img-top" alt="Проект 1">
+          <div class="card-body">
+            <h5 class="card-title">Веб-сайт для кафе</h5>
+            <p class="card-text">Адаптивный сайт с меню и бронированием.</p>
+            <span class="badge bg-primary">HTML/CSS</span>
+            <a href="#" class="btn btn-outline-primary btn-sm mt-2">Подробнее</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="https://via.placeholder.com/300x200?text=JS+Project" class="card-img-top" alt="Проект 2">
+          <div class="card-body">
+            <h5 class="card-title">Калькулятор</h5>
+            <p class="card-text">Простой калькулятор на JavaScript.</p>
+            <span class="badge bg-info">JavaScript</span>
+            <a href="#" class="btn btn-outline-primary btn-sm mt-2">Подробнее</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="https://via.placeholder.com/300x200?text=React+Project" class="card-img-top" alt="Проект 3">
+          <div class="card-body">
+            <h5 class="card-title">Трекер привычек</h5>
+            <p class="card-text">Приложение для отслеживания привычек.</p>
+            <span class="badge bg-danger">React</span>
+            <a href="#" class="btn btn-outline-primary btn-sm mt-2">Подробнее</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-3 mt-auto">
+    <div class="container text-center">
+      <p class="mb-0">&copy; 2025 Контакты</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
