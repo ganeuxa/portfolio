@@ -9,12 +9,94 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <!-- Стили модального окна -->
+  <style>
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.6);
+      animation: fadeIn 0.3s ease;
+    }
+
+    dialog#confirmModal {
+      border: none;
+      border-radius: 12px;
+      padding: 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      animation: slideIn 0.3s ease;
+      max-width: 500px;
+      width: 90vw;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: var(--bs-body-bg);
+      color: var(--bs-body-color);
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, #0d6efd, #6c757d);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 12px 12px 0 0;
+      margin: 0;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .modal-content {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn-modal {
+      padding: 0.6rem 1.5rem;
+      font-weight: 600;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-primary-modal {
+      background: #0d6efd;
+      color: white;
+    }
+
+    .btn-primary-modal:hover {
+      background: #0b5ed7;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+  </style>
 </head>
 <body class="bg-light d-flex flex-column min-vh-100">
   <!-- Header -->
   <header class="bg-primary text-white py-3">
     <div class="container">
-      <h1 class="h3 mb-0">[ЛОГОТИП]</h1>
+      <img src="../images/icons/marselin.png" alt="Логотип" style="height: 32px; vertical-align: middle;" class="me-2">
+      <span class="h3 mb-0">Портфолио</span>
     </div>
   </header>
 
@@ -95,6 +177,48 @@
       <p class="mb-0">&copy; 2025 Контакты</p>
     </div>
   </footer>
+
+  <!-- Модальное окно подтверждения -->
+  <dialog id="confirmModal">
+    <div class="modal-header">
+      <h2>Сообщение отправлено!</h2>
+    </div>
+    <div class="modal-content">
+      <p>Спасибо! Я свяжусь с вами в ближайшее время.</p>
+      <div class="modal-actions">
+        <button class="btn-modal btn-primary-modal" onclick="confirmModal.close()">Закрыть</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Предотвращаем стандартную отправку
+
+      // Проверяем валидность
+      if (!this.checkValidity()) {
+        this.reportValidity();
+        return;
+      }
+
+      // Собираем данные (опционально для лога)
+      const data = {
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
+      };
+      console.log('Отправлено:', data);
+
+      // Показываем модальное окно
+      document.body.style.overflow = 'hidden';
+      confirmModal.showModal();
+    });
+
+    // Восстанавливаем прокрутку при закрытии
+    document.getElementById('confirmModal').addEventListener('close', () => {
+      document.body.style.overflow = '';
+    });
+  </script>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
